@@ -27,9 +27,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "builder": "react-scripts build",
+    "build": "npm install && npm run clean && npm run builder && shx cp -r build ../backend/app/build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean": "rimraf ./build && rimraf ../backend/app/build"
   },
   "eslintConfig": {
     "extends": [
@@ -49,5 +51,10 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "rimraf": "^5.0.7",
+    "shx": "^0.3.4"
+  }
 }
