@@ -34,7 +34,7 @@ const About: FC<AboutProps> = ({sharedState}): ReactElement => {
                 <br />
                 - Please ensure that the project is running before attempting to use this app. 
                 <br />
-                - Requests to /api path are proxied to the api project at http://127.0.0.1:5000/api/info.
+                - When running locally, requests to /api path are proxied to the backend project at http://127.0.0.1:5000/api/info.
                 </Item>
             </Container>
         </Box>
