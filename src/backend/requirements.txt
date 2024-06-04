@@ -1,3 +1,4 @@
 Flask
 msal
 python-dotenv
+gunicorn
