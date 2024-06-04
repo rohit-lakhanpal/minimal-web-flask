@@ -11,35 +11,7 @@ import { SharedState } from "./state/SharedState";
 import { infoService } from "./services/infoService";
 
 function App() {  
-  const [errors, setErrors] = useState<any[]>([]);
-  const [warnings, setWarnings] = useState<any[]>([]);
-  const [info, setInfo] = useState<any[]>([]);
   const [appInfo, setAppInfo] = useState<any>({});
-
-  const binErrors = (idx: number) => {
-    // remove the warning at idx
-    setErrors((prev:any) => {
-        return prev.filter((e:any, i:number) => {
-            return i !== idx;
-        })
-    });
-  };
-  const binWarnings = (idx: number) => {
-    // remove the warning at idx
-    setWarnings((prev:any) => {
-        return prev.filter((e:any, i:number) => {
-            return i !== idx;
-        })
-    });
-  };
-  const binInfo = (idx: number) => {
-    // remove the warning at idx
-    setInfo((prev:any) => {
-        return prev.filter((e:any, i:number) => {
-            return i !== idx;
-        })
-    });
-  };
   
   useEffect(() => {
     (async () => {                          
@@ -54,9 +26,6 @@ function App() {
   }, []);
 
   const sharedState: SharedState = {    
-    errors,
-    warnings,
-    info,
     appInfo 
   };
 
