@@ -1,0 +1,52 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Flask",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/backend/main.py", // Adjust to your main Flask file
+            "env": {
+                "FLASK_APP": "main.py",
+                "FLASK_ENV": "development"
+            },
+            "args": [
+                "run"
+            ],
+            "jinja": true,
+            "cwd": "${workspaceFolder}/src/backend"
+        },
+        {
+            "name": "Chrome: Launch",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/src/frontend",
+            "preLaunchTask": "Run React Frontend"
+        },
+        {
+            "name": "Edge: Launch",
+            "type": "msedge",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/src/frontend",
+            "preLaunchTask": "Run React Frontend"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Debug Full Stack (Chrome)",
+            "configurations": [
+                "Python: Flask",
+                "Chrome: Launch"
+            ]
+        },
+        {
+            "name": "Debug Full Stack (Edge)",
+            "configurations": [
+                "Python: Flask",
+                "Edge: Launch"
+            ]
+        }
+    ]
+}

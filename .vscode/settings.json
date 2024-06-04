@@ -1,0 +1,10 @@
+{
+  "python.pythonPath": "/usr/local/bin/python", // Adjust to your Python path
+  "python.envFile": "${workspaceFolder}/src/backend/.env",
+  "eslint.workingDirectories": [
+      {
+          "directory": "${workspaceFolder}/src/frontend",
+          "changeProcessCWD": true
+      }
+  ]
+}
