@@ -1,0 +1,29 @@
+name: minimal-web-flask
+metadata:
+  template: minimal-web-flask
+
+services:
+  web:
+    project: ./src/backend
+    language: python
+    host: appservice
+    azureResource:
+      type: webapp
+      resourceName: 'minimal-web-flask-${{uniqueString(subscription().id)}}'
+      environment: 'Production'
+    
+    deploy:
+      package:
+        - run: |
+            python -m venv venv
+            source venv/bin/activate
+            cd src/frontend            
+            npm install
+            npm run build
+            cd ../..
+            cd src/backend            
+            pip install -r requirements.txt
+            zip release.zip ./* -r
+      postDeploy:
+        - run: |
+            unzip release.zip
